@@ -1,6 +1,11 @@
 ---
   - hosts: webserver
     become: true
+    gather_facts: false
     roles:
       - apache2
-      - demo_app
+      - role: demo_app
+        demo_app_db_user: "{{ demo_db_user }}"
+        demo_app_db_pass: "{{ demo_db_pass }}"
+        demo_app_db_host: "{{ groups.database[0] }}"
+        demo_app_db_name: "{{ demo_db_name }}"
