@@ -1,5 +1,5 @@
 ---
-  - hosts: databases
+  - hosts: database
     become: true
 
     tasks:
@@ -8,3 +8,12 @@
 
       - name: "ensure mysql started"
         service: name=mysql state=started enabled=yes
+
+      - name: "ensure mysql listening on all ports"
+        lineinfile: dest=/etc/mysql/mysql.conf.d/mysqld.cnf regexp=^bind-address
+                    line="bind-address = 0.0.0.0"
+        notify: "restart mysql"
+
+    handlers:
+      - name: "restart mysql"
+        service: name=mysql state=restarted
