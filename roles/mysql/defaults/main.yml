@@ -1,2 +1,5 @@
 ---
-# defaults file for mysql
+mysql_db_name: myapp
+mysql_user_name: dbuser
+mysql_user_pass: dbpass
+mysql_user_host: localhost
