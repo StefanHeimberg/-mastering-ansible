@@ -1,11 +1,11 @@
-[loadbalancer]
+[loadbalancers]
 ma-lb01
 
-[webserver]
+[webservers]
 ma-app01
 ma-app02
 
-[database]
+[databases]
 ma-db01
 
 [control]

@@ -1,5 +1,5 @@
 ---
-  - hosts: database
+  - hosts: databases
     become: true
 
     tasks:
