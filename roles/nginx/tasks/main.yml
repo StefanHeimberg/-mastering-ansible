@@ -18,6 +18,7 @@
 - name: "get active sites"
   shell: ls -1 /etc/nginx/sites-enabled
   register: active_sites
+  changed_when: "active_sites.stdout_lines != nginx_sites.keys()"
   tags: [ 'configure' ]
 
 - name: "de-activate default nginx sites"
